@@ -18,7 +18,7 @@ mongoose.connect(url, { useNewUrlParser: true })
     .then(() => console.log("Connection Successful"))
     .catch(err => console.log(err));
 
-seedDB();
+// seedDB();
 app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine","ejs");
 
