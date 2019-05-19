@@ -4,6 +4,7 @@ var express    = require("express"),
     mongoose   = require("mongoose"),
     passport   = require("passport"),
     LocalStrategy = require("passport-local"),
+    methodOverride = require("method-override"),
     Campground = require("./models/campground"),
     Comment    = require("./models/comment"),
     User    = require("./models/user"),
@@ -37,9 +38,11 @@ app.use(function(req,res,next){
   res.locals.currentUser = req.user; 
   next();
 });
+app.use(methodOverride("_method"));
 app.use(commentRoutes);
 app.use(indexRoutes);
 app.use(campgroundRoutes);
+
 app.listen(process.env.PORT,process.env.IP,function(){
     console.log("Server Started...");
 });
