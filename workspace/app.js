@@ -42,6 +42,7 @@ app.use(function(req,res,next){
   res.locals.success     = req.flash("success");
   next();
 });
+app.use(express.static(__dirname + '/public'));
 app.use(methodOverride("_method"));
 app.use(commentRoutes);
 app.use(indexRoutes);
